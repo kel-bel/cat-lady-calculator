@@ -1,0 +1,119 @@
+/* General Appearance */
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	box-sizing: border-box;
+	line-height: 1;
+	background-color: #edefed; 
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+div {
+	/*border: 1px solid chocolate;*/
+}
+
+header h1 {
+	font: 32px/32px 'Coming Soon', cursive;
+	color: #58595B;
+	text-align: center;
+	padding-top: 40px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	text-align: center;
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	width: 800px;
+}
+
+/* Cat pic and button section */
+.cat {
+	background-image: url('../images/cat-without-yarn.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: -1;
+	height: 800px;
+	margin-top: -20px;
+}
+
+/* yarn */
+.meow {
+	padding-top: 450px;
+	padding-left: 350px;
+}
+
+.yarn {
+	position: relative;
+	width: 100%;
+}
+
+.yarn img {
+	position: absolute;
+}
+
+img.justyarn {
+	height: 800px;
+	width: 800px;
+}
+
+.meow > button {
+	font: 40px/40px 'Coming Soon', cursive; 
+	text-align: center;
+	color: #58595B;
+	display: inline-block;
+	border: none;
+	background-color: transparent;
+	vertical-align: top;
+	cursor: pointer;
+	outline: none;
+	overflow: hidden;
+
+}
+
+.meow > button:hover {
+	cursor: pointer;
+}
+
+ /* Question itself */
+ .question {
+	margin-top: -60px;
+ }
+
+ .question > h2 {
+	font: 20px/20px 'Coming Soon', sans-serif;
+	color: #000;
+	text-align: center;
+}
+
+/* Questions options */
+
+.question .options {
+	font: 16px/16px 'Coming Soon', sans-serif;
+	color: #000;
+}
+
+.question .options > li {
+	padding: 20px 0;
+	margin: 0 200px;
+	line-height:10px;
+}
+
+.question .options > li:hover {
+	cursor: pointer;
+	border: 1px solid #da6a7d;
+	border-radius: 20px;
+	width: 400px;
+	height: 50px;
+}
+
