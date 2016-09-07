@@ -93,7 +93,7 @@ $(document).ready(function() {
 			$('.options').append("<li>" + question.choices[i] + "</li>");
 		//assigns points to each answer
 	  for ( var p = 0; p < question.points.length; p++) 
-			$('p.points').append("<p class='points'>" + question.points[p] + "</p>");
+			$('.points').append("<p class='points'>" + question.points[p] + "</p>");
 	};
 	
 	//clicking new game
