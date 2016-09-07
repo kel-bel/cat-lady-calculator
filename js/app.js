@@ -35,26 +35,25 @@ $(document).ready(function() {
 	var currentQuestionIndex = 0;
 	var currentQuestion = questions[currentQuestionIndex];
 	var count = 0;
+	var answered = false;
 
 	//clicking one of the answers
 	$('.options').click(function() {
 		//styling button
 		$(event.target).css({border: "1px solid #da6a7d", borderRadius: "20px", width: "400px", height: "50px"});
 		//make sure only selects 1?!
-		console.log(event.target)
-		currentQuestionIndex +=1;
+		answered = true;
+		currentQuestionIndex++;
 		currentQuestion = questions[currentQuestionIndex];
 	});
 
 	//Submit button actions
-	$('.cat').on("click", function() {
+	$('.cat').on("click", function(event) {
 		console.log("submit button clicked");
 		//must choose an answer to submit ---> not working yet
-		if (event.target === "") {
-			console.log("Please choose an option!")
-			alert("Please choose an option!")
-		} 
-		else {
+		console.log(event.target);
+		if (answered == true) {
+			answered = false;
 			playMeow();
 			//animates yarn
 			$('img.justyarn').animate({top: '-200'},
@@ -63,7 +62,10 @@ $(document).ready(function() {
 			$('img.justyarn').animate({top: '0'}, 
 				500, "easeOutBounce"
 			);
-			//points taken
+			//takes chosen answer
+			//assigns the points to that answer
+			var pointValue = questions[currentQuestionIndex].points[event.eventPhase-1]; 
+			console.log(pointValue);
 			pointTracker();	
 			console.log(event.target + " which is worth " + points + " points.");
 			//next question placed
@@ -74,6 +76,10 @@ $(document).ready(function() {
 				$('.question').hide();
 				$('.finalresults').show();
 			};
+		} 
+		else {
+			console.log("Please choose an option!")
+			alert("Please choose an option!")
 		};
 	});
 
@@ -102,9 +108,10 @@ $(document).ready(function() {
 	});
 
 	//Keeping track of point count
-	function pointTracker() {
-		points++;
-		console.log("You have " + points + " points.");
+	function pointTracker(pointValue) {
+		var totalPoints = points + pointValue;
+		points = parseInt(totalPoints);
+		console.log("You have " + parseInt(points) + " points.");
 	};	
 
 	//function generateFeedback() {
