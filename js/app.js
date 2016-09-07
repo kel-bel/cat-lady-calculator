@@ -6,7 +6,9 @@ $(document).ready(function() {
 
 	var currentQuestion = 0;
 
-	var score = 0;
+	var points = 0;
+
+	var totalPoints = 0;
 
 	var questions = [
 			{question: 'How many cats do you already have?',
@@ -34,6 +36,16 @@ $(document).ready(function() {
 	var currentQuestion = questions[currentQuestionIndex];
 	var count = 0;
 
+	//clicking one of the answers
+	$('.options').click(function() {
+		//styling button
+		$(event.target).css({border: "1px solid #da6a7d", borderRadius: "20px", width: "400px", height: "50px"});
+		//make sure only selects 1?!
+		console.log(event.target)
+		currentQuestionIndex +=1;
+		currentQuestion = questions[currentQuestionIndex];
+	});
+
 	//Submit button actions
 	$('.cat').on("click", function() {
 		console.log("submit button clicked");
@@ -51,7 +63,9 @@ $(document).ready(function() {
 			$('img.justyarn').animate({top: '0'}, 
 				500, "easeOutBounce"
 			);
-			pointTracker();
+			//points taken
+			pointTracker();	
+			console.log(event.target + " which is worth " + points + " points.");
 			//next question placed
 			if  (currentQuestionIndex < questions.length) {
 				loadQuestion(currentQuestion);
@@ -70,13 +84,16 @@ $(document).ready(function() {
 		$('#meow-sound')[0].play();
 	};
 
-	function loadQuestion(question, choices) {
+	function loadQuestion(question, choices, points) {
 		//updates question
 		$('h2').text(question.question);
 		//updates answers
 		$('.questions ul').text('');
 	  for ( var i = 0; i < question.choices.length; i++)
 			$('.options').append("<li>" + question.choices[i] + "</li>");
+		//assigns points to each answer
+	  for ( var p = 0; p < question.points.length; p++) 
+			$('p.points').append("<p class='points'>" + question.points[p] + "</p>");
 	};
 	
 	//clicking new game
@@ -84,28 +101,11 @@ $(document).ready(function() {
 		console.log("New Game button clicked")
 	});
 
-	var points = 0;
-
-	//clicking one of the answers
-	$('.options').click(function() {
-		//styling button
-		$(event.target).css({border: "1px solid #da6a7d", borderRadius: "20px", width: "400px", height: "50px"});
-		//make sure only selects 1?!
-		console.log(event.target + " which is worth " + points + " points.")
-		if ( $(event.target).text() === currentQuestion.correct);
-		currentQuestionIndex +=1;
-		currentQuestion = questions[currentQuestionIndex];
-	});
-
 	//Keeping track of point count
 	function pointTracker() {
-		//assigns points to each answer
-		for ( var p = 0; p < points.length; i++) {
-			points += points[p] << 0;
-		}; 
 		points++;
 		console.log("You have " + points + " points.");
-	};
+	};	
 
 	//function generateFeedback() {
 		//if (catCount > 24) {

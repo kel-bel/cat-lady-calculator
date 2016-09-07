@@ -37,6 +37,12 @@ ul {
 	width: 800px;
 }
 
+/* Points hidden */
+p.points {
+    float: right;
+    /* display: none; */
+}
+
 /* Cat pic and button section */
 .cat {
 	background-image: url('../images/cat-without-yarn.png');
