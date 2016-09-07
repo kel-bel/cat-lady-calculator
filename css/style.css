@@ -18,10 +18,10 @@ div {
 }
 
 header h1 {
-	font: 32px/32px 'Coming Soon', cursive;
-	color: #58595B;
+	font: 40px/40px 'Coming Soon', cursive;
+	color: #da6a7d;
 	text-align: center;
-	padding-top: 40px;
+	padding: 5px;
 }
 
 ul {
@@ -43,13 +43,17 @@ ul {
 	background-position: center;
 	background-repeat: no-repeat;
 	z-index: -1;
-	height: 800px;
+	height: 570px;
 	margin-top: -20px;
+}
+
+.cat:hover {
+	cursor: pointer;
 }
 
 /* yarn */
 .meow {
-	padding-top: 450px;
+	padding-top: 350px;
 	padding-left: 350px;
 }
 
@@ -63,7 +67,6 @@ ul {
 }
 
 img.justyarn {
-	height: 800px;
 	width: 800px;
 }
 
@@ -78,42 +81,54 @@ img.justyarn {
 	cursor: pointer;
 	outline: none;
 	overflow: hidden;
-
 }
 
-.meow > button:hover {
-	cursor: pointer;
+.meow > button.newgame {
+	display: none;
 }
 
  /* Question itself */
- .question {
-	margin-top: -60px;
- }
+ .questions {
+    width: 400px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
 
- .question > h2 {
+ .question {
 	font: 20px/20px 'Coming Soon', sans-serif;
 	color: #000;
 	text-align: center;
 }
 
 /* Questions options */
-
-.question .options {
+.questions .options {
 	font: 16px/16px 'Coming Soon', sans-serif;
 	color: #000;
 }
 
-.question .options > li {
+.questions .options > li {
 	padding: 20px 0;
-	margin: 0 200px;
 	line-height:10px;
 }
 
-.question .options > li:hover {
+.questions .options > li:hover {
 	cursor: pointer;
 	border: 1px solid #da6a7d;
 	border-radius: 20px;
 	width: 400px;
 	height: 50px;
+}
+
+/* New Game */
+.startover button.newgame {
+	font: 20px/20px 'Coming Soon', sans-serif;
+	color: #da6a7d;
+	border: 1px solid #da6a7d;
+	border-radius: 20px;
+	padding: 10px;
+	text-align: center;
+	margin-left: 350px;
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
